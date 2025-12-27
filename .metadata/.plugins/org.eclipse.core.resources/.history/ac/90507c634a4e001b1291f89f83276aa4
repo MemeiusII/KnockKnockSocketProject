@@ -1,0 +1,47 @@
+package me.Ethan.Bilbrey.KnockKnockSocketProject.ClientSide;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class KnockKnockClient 
+{
+	public static void main(String[] args) throws IOException 
+	{
+		String hostName = "localhost";
+		int portNumber = 4444;
+		
+		try
+		(
+				//Connects to server
+				Socket kkSocket = new Socket(hostName, portNumber);
+				//Sets up IO
+				PrintWriter out = new PrintWriter(kkSocket.getOutputStream(), true);
+				BufferedReader in = new BufferedReader(new InputStreamReader(kkSocket.getInputStream()));
+		)
+		{
+			String fromServer;
+			
+			while((fromServer = in.readLine()) != null) 
+			{
+				System.out.println(fromServer);
+				if(fromServer.contains("bye")) 
+				{
+					break;
+				}
+				
+				Scanner reply = new Scanner(System.in);
+				
+				String fromUser = "[Client] " + reply.nextLine();
+				if(fromUser != null) 
+				{
+					System.out.println(fromUser);
+					out.println(fromUser);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,49 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class KnockKnockServer 
+{
+	public static void main(String[] args) 
+	{
+		//when starting the project via cmd, pass the port number to be used
+		int portNumber = Integer.parseInt(args[0]);
+			
+			try
+			(
+					//binds server to the specified port
+					ServerSocket serverSocket = new ServerSocket(portNumber);
+					//Waits for client to connect and then creates a new socket for them
+					Socket clientSocket = serverSocket.accept();
+					
+					//Sets up IO
+					PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+					BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			) 
+			{
+				String inputLine, outputLine;
+				
+				//Start conversation with client
+				KnockKnockProtocal kkp = new KnockKnockProtocal();
+				outputLine = kkp.processInput(null);
+				System.out.println(outputLine);
+				
+				while((inputLine = in.readLine()) != null) 
+				{
+					outputLine = kkp.processInput(inputLine);
+					if(outputLine.contains("bye")) 
+					{
+						break;
+					}
+				}
+			} 
+			
+			
+			
+	}
+}

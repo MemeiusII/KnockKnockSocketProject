@@ -1,0 +1,17 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+
+public class KnockKnockProtocol 
+{
+	private static int count = 0;
+	public static String processInput(String inputLine) 
+	{	
+		String jokeLine = null;
+		
+		if(inputLine != null) 
+		{
+			
+		}
+		return jokeLine;
+	}
+}

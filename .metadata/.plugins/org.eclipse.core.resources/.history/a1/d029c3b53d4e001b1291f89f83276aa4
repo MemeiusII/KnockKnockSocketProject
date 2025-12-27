@@ -1,0 +1,5 @@
+package me.Ethan.Bilbrey.KnockKnockSocketProject.ClientSide;
+
+public class KnockKnockClient {
+
+}

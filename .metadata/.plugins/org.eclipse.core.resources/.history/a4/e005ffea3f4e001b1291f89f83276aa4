@@ -1,0 +1,9 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+public class KnockKnockProtocol 
+{
+	public static void processInput(String inputLine) 
+	{
+		
+	}
+}

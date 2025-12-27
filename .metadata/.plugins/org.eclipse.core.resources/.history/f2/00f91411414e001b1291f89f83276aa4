@@ -1,0 +1,29 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+import java.util.ArrayList;
+
+public class KnockKnockProtocol 
+{
+	public static String processInput(String inputLine) 
+	{
+		ArrayList<String> joke = new ArrayList();
+		joke.add("Knock knock!");
+		joke.add("Joe");
+		joke.add("Joe Mama! bye");
+		
+		int count = 0;
+		String jokeLine;
+		if(inputLine != null) 
+		{
+			if(count == 0 && inputLine.contains("who's there")) 
+			{
+				jokeLine = joke.get(0);
+			}
+			else 
+			{
+				System.out.println("User did not type expected \"who's there\"");
+			}
+			return jokeLine;
+		}
+	}
+}

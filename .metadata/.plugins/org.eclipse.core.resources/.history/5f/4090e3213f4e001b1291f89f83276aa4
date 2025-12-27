@@ -1,0 +1,27 @@
+package me.Ethan.Bilbrey.KnockKnockSocketProject.ClientSide;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class KnockKnockClient 
+{
+	public static void main(String[] args) 
+	{
+		//When starting via cmd, pass the ip and port number of the server
+		String hostName = args[0];
+		int portNumber = Integer.parseInt(args[1]);
+		
+		try
+		(
+				Socket kkSocket = new Socket(hostName, portNumber);
+				
+				PrintWriter out = new PrintWriter(kkSocket.getOutputStream());
+				BufferedReader in = new BufferedReader(new InputStreamReader(kkSocket.getInputStream()));
+		)
+		{
+			
+		}
+	}
+}

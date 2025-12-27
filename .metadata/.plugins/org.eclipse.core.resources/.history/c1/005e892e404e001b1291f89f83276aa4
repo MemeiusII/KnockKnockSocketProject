@@ -1,0 +1,14 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+import java.util.ArrayList;
+
+public class KnockKnockProtocol 
+{
+	public static String processInput(String inputLine) 
+	{
+		ArrayList<String> joke = new ArrayList();
+		joke.add("Knock knock!");
+		joke.add("Joe");
+		joke.add("Joe Mama! bye");
+	}
+}

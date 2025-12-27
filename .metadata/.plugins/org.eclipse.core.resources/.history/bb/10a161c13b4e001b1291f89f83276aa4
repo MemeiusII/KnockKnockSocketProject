@@ -1,0 +1,5 @@
+package me.EthanBilbrey.KnockKnockSocketProject.ServerSide;
+
+public class KnockKnockServer {
+
+}
